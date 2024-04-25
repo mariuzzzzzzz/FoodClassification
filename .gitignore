@@ -35,7 +35,8 @@ build/
 
 ### Large Dataset ###
 ut-zap50k-images-square
-ut-zap50k-images-square/*
+ut-zap50k-images-square-small
+
 
 ### Credentials ###
 application.properties
