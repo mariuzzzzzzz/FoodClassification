@@ -6,7 +6,8 @@
 
 ### Run Modelling-Process
 - run: mvn clean install
-- run: open the Training.java-class and run it manually
+- run: open the Training.java-class and run it manually (e.g. Play-Button)
+- check if the model-folder has been created with 2 files in it: shoeclassifier-0002.params and synset.txt
 
 
 ### Run Programm
