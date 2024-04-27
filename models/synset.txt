@@ -1,4 +1,7 @@
+baklava
 bruschetta
+falafel
+hummus
 risotto
 samosa
 tacos

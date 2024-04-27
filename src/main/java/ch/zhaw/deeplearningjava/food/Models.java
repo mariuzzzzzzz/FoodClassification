@@ -26,8 +26,8 @@ import java.util.List;
 /** A helper class loads and saves model. */
 public final class Models {
 
-    // the number of classification labels: bruschetta, risotto, samosa, tacos
-    public static final int NUM_OF_OUTPUT = 4;
+    // the number of classification labels: baklava, bruschetta, falafel, hummus, risotto, samosa, tacos
+    public static final int NUM_OF_OUTPUT = 7;
 
     // the height and width for pre-processing of the image
     public static final int IMAGE_HEIGHT = 100;
