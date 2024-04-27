@@ -34,8 +34,8 @@ build/
 .mvn
 
 ### Large Dataset ###
-ut-zap50k-images-square
-ut-zap50k-images-square-small
+food-101
+food-101-small
 
 
 ### Credentials ###
@@ -43,11 +43,3 @@ application.properties
 
 ### Test ###
 */test/*
-
-### Mac-Shit ###
-.DS*
-
-### Jupyter Notebook Shit ###
-.ipynb_checkpoints
-
-models/*
