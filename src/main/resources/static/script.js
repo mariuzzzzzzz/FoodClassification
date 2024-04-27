@@ -2,7 +2,7 @@ function checkFiles(files) {
     console.log(files);
 
     if (files.length != 1) {
-        alert("Bitte genau eine Datei hochladen.")
+        alert("Bitte genau eine Datei hochladen.");
         return;
     }
 
@@ -17,32 +17,44 @@ function checkFiles(files) {
 
     // Preview
     if (file) {
-        preview.src = URL.createObjectURL(files[0])
+        preview.src = URL.createObjectURL(file);
     }
 
     // Upload
     const formData = new FormData();
-    for (const name in files) {
-        formData.append("image", files[name]);
-    }
+    formData.append("image", file);
 
     fetch('/analyze', {
         method: 'POST',
-        headers: {
-        },
         body: formData
-    }).then(
-        response => {
-            console.log(response)
-            response.text().then(function (text) {
-                answer.innerHTML = text;
-            });
+    }).then(response => {
+        return response.json(); // Assuming the server responds with JSON
+    }).then(data => {
+        console.log(data);
+        displayResults(data); // Function to format and display results
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+}
 
-        }
-    ).then(
-        success => console.log(success)
-    ).catch(
-        error => console.log(error)
-    );
+function displayResults(results) {
+    const answerDiv = document.getElementById('answer');
+    answerDiv.innerHTML = ''; // Clear previous results
 
+    const table = document.createElement('table');
+    table.className = 'table table-hover';
+
+    const thead = document.createElement('thead');
+    thead.innerHTML = '<tr><th>Food Item</th><th>Probability</th></tr>';
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    results.forEach(result => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${result.className}</td><td>${(result.probability * 100).toFixed(2)}%</td>`;
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    answerDiv.appendChild(table);
 }
