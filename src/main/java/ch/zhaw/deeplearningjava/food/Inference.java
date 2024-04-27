@@ -36,6 +36,7 @@ public class Inference {
                     .addTransform(new Resize(Models.IMAGE_WIDTH, Models.IMAGE_HEIGHT))
                     .addTransform(new ToTensor())
                     .optApplySoftmax(true)
+                    .optTopK(10)  // Here you can specify how many top probabilities you want to get back
                     .build();
             predictor = model.newPredictor(translator);
 
