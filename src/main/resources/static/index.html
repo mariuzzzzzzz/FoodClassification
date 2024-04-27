@@ -4,23 +4,26 @@
     <title>Image Classification</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1 class="mb-3">Food Classification</h1>
-        <p>DeepJavaLibrary (DJL)</p>
-        <form>
-            <div class="form-group">
-                <label for="image">Bitte Bild hochladen (jpeg, png)</label>
-                <input type="file" accept="image/png, image/jpeg" class="form-control-file" id="image" name="image" onchange="checkFiles(this.files);">
-            </div>
-        </form>
-        <div id="answerPart" style="visibility: hidden;">
-            <div id="answer" class="mt-3"></div>
-            <div id="previewPart" class="mt-3">
-                <b>Analyzed Image:</b>
-                <img id="preview" width="300" src="#" alt="preview" style="display: block;" />
+    <div class="container mt-4 d-flex justify-content-center align-items-center" style="min-height: 100vh; flex-direction: column;">
+        <div class="text-center">
+            <h1 class="mb-3">Food Classification</h1>
+            <p>DeepJavaLibrary (DJL)</p>
+            <form>
+                <div class="form-group">
+                    <input type="file" accept="image/png, image/jpeg" id="image" name="image" onchange="checkFiles(this.files);" style="display: none;">
+                    <button type="button" class="btn btn-primary btn-block rounded-pill" onclick="document.getElementById('image').click();">Upload Image (jpeg, png)</button>
+                </div>
+            </form>
+            <div id="answerPart" style="visibility: hidden;">
+                <div id="answer" class="mt-3"></div>
+                <div id="previewPart" class="mt-3">
+                    <b>Analyzed Image:</b>
+                    <img id="preview" width="300" src="#" alt="preview" style="display: block; margin: auto;" />
+                </div>
             </div>
         </div>
     </div>
